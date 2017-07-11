@@ -57,6 +57,7 @@ const controller = class FtRegisterController {
         this.error = 'Username or password are incorrect, please try again.'
     })
   }
+
 }
 
 export const ftRegister = {

@@ -1,4 +1,4 @@
-import 'app/styles/login.styles'
+  import 'app/styles/login.styles'
 import templateUrl from 'app/html/login.template'
 
 const controller = class FtLoginController {
@@ -28,7 +28,7 @@ const controller = class FtLoginController {
   loginSubmit () {
     this.$http({
       method: 'POST',
-      url: 'http://localhost:8080/validate/username/credentials/@' + this.username + '',
+      url: 'http://localhost:8080/user/users/validate/user' ,
       data: {username: this.username, password: this.password}
     }).then(this.successCallback = (response) => {
       if (response.data === true) {

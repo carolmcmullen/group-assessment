@@ -18,13 +18,17 @@ import { gameConfig } from 'app/config/game.config'
 import { settingsConfig } from 'app/config/settings.config'
 import { registerConfig } from 'app/config/register.config'
 
+import { ftUserSettings } from 'app/component/usersettings.component'
+import { usersettingsConfig } from 'app/config/usersettings.config'
+
 export default ng
   .module('ft.buttons', [localStorage,
     ngUirouter,
     loginConfig,
     gameConfig,
     registerConfig,
-    settingsConfig
+    settingsConfig,
+    usersettingsConfig
   ])
   .service('appService', AppService)
   .component('ftApp', ftApp)
@@ -34,6 +38,7 @@ export default ng
   .component('ftSettings', ftSettings)
   .component('ftRegister', ftRegister)
   .constant('ftGameSettings', ftGameSettings)
+  .component('ftUserSettings', ftUserSettings)
   .config(config)
   .run(run)
   .name
