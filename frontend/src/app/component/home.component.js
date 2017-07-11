@@ -1,6 +1,8 @@
 import 'app/styles/home.styles'
 import templateUrl from 'app/html/home.template'
 
+/*changes made by carol
+*/
 const controller = class FtRegisterController {
   constructor ($log, $state, $location, $http, ftGameSettings, $window, $rootScope, appService) {
     'ngInject'
