@@ -21,6 +21,8 @@ import { registerConfig } from 'app/config/register.config'
 import { ftUserSettings } from 'app/component/usersettings.component'
 import { usersettingsConfig } from 'app/config/usersettings.config'
 
+/* carol's comment
+*/
 export default ng
   .module('ft.buttons', [localStorage,
     ngUirouter,
