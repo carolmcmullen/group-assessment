@@ -23,6 +23,8 @@ import { settingsConfig } from 'app/config/settings.config'
 import { registerConfig } from 'app/config/register.config'
 import { homeConfig } from 'app/config/home.config'
 
+/* carol's comment
+*/
 export default ng
   .module('ft.buttons', [localStorage,
     ngUirouter,
