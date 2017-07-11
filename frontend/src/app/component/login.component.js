@@ -31,8 +31,45 @@ const controller = class FtLoginController {
       url: 'http://localhost:8080/user/users/validate/user',
       data: {credentials: { password: this.password, username: this.username }}
     }).then(this.successCallback = (response) => {
-      if (response.data.credentials.username === this.username)
-      alert(JSON.stringify(response.data))
+      let user = response.data.username
+      if (user === this.username)
+      this.$state.transitionTo('home')
+    }, this.errorCallback = (response) => {
+      this.error = 'Username or password are incorrect, please try again.'
+    })
+  }
+  registerSubmit () {
+
+      this.$http({
+        method: 'POST',
+        url: 'http://localhost:8080/user/users',
+         params: { firstName: this.firstname, lastName: this.lastname, phone: this.phone },
+        data:
+        {
+          "credentials": {
+            "password": this.regpassword,
+            "username": this.regusername
+            },
+            "profile": {
+              "email": this.email
+            }
+          }
+        })
+     .then((response) => {
+       alert(JSON.stringify(response.data) + '3')
+       if (response.status === 201) {
+         this.$state.transitionTo('home')
+         //alert('User Created!' + ' ' + '201')
+       }
+     })
+
+  }
+  checkUser () {
+    this.$http({
+      method: 'GET',
+      url: 'http://localhost:8080/validate/username/available/@' + this.regusername + ''
+    }).then(this.successCallback = (response) => {
+      return true
     }, this.errorCallback = (response) => {
       this.error = 'Username or password are incorrect, please try again.'
     })
