@@ -13,7 +13,7 @@ const controller = class FtUserSettingsController {
     // $rootScope.$on(this.$location.$routeChangeStart, this.checkAuth())
     $log.log('ft-usersettings is a go')
   }
-
+/*
 updateUser(){
   this.$http({
     method: 'PUT',
@@ -26,12 +26,12 @@ updateUser(){
         "username": this.username
       },
       "profile": {
-          "email": this.email,
+        "email": this.email,
       }
     }
   })
 }
-
+/*
 checkUser () {
   this.$http({
     method: 'GET',
@@ -42,6 +42,8 @@ checkUser () {
     this.error = 'Username or password are incorrect, please try again.'
   })
 }
+}
+*/
 }
 export const ftUserSettings = {
   controller,
