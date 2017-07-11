@@ -17,14 +17,32 @@ const controller = class FtUserSettingsController {
 updateUser(){
   this.$http({
     method: 'PUT',
-    url: 'http://localhost:8080/users/@' + this.username + ''
-    })
-
-    
-  }
+    url: 'http://localhost:8080/users/@' + this.username + '',
+    params: { firstName: this.firstname, lastName: this.lastname, phone: this.phone },
+    data:
+    {
+      "credentials": {
+        "password": this.password,
+        "username": this.username
+      },
+      "profile": {
+          "email": this.email,
+      }
+    }
+  })
 }
 
-
+checkUser () {
+  this.$http({
+    method: 'GET',
+    url: 'http://localhost:8181/validate/username/available/@' + this.username + ''
+  }).then(this.successCallback = (response) => {
+    return true
+  }, this.errorCallback = (response) => {
+    this.error = 'Username or password are incorrect, please try again.'
+  })
+}
+}
 export const ftUserSettings = {
   controller,
   templateUrl,
