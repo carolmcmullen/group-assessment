@@ -1,4 +1,4 @@
-  import 'app/styles/login.styles'
+import 'app/styles/login.styles'
 import templateUrl from 'app/html/login.template'
 
 const controller = class FtLoginController {
@@ -28,21 +28,11 @@ const controller = class FtLoginController {
   loginSubmit () {
     this.$http({
       method: 'POST',
-      url: 'http://localhost:8080/user/users/validate/user' ,
-      data: {username: this.username, password: this.password}
+      url: 'http://localhost:8080/user/users/validate/user',
+      data: {credentials: { password: this.password, username: this.username }}
     }).then(this.successCallback = (response) => {
-      if (response.data.username !== undefined) {
-        this.$http.get('http://localhost:8080/user/users/@' + this.username + '')
-       .then((response) => {
-         this.settings.user.firstname = response.data.profile.firstName
-         this.service.saveState('firstName', this.settings.user.firstname)
-       })
-        this.settings.userInfo.isAuthenticated = true
-        this.service.saveState('isAuthenticated', true)
-        this.$state.transitionTo('game')
-      } else {
-        this.error = 'Username or password are incorrect, please try again.'
-      }
+      if (response.data.credentials.username === this.username)
+      alert(JSON.stringify(response.data))
     }, this.errorCallback = (response) => {
       this.error = 'Username or password are incorrect, please try again.'
     })
