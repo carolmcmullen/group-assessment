@@ -23,7 +23,7 @@ const controller =
         this.settings.defaultGameSettings.autoclicker = this.service.localStorageService.get('autoclickers')
         this.settings.defaultGameSettings.modifiers = this.service.localStorageService.get('modifier')
         this.settings.userInfo.isAuthenticated = true
-        this.settings.userInfo.name = this.service.localStorageService.get('firstName')
+        this.settings.user.firstname = this.service.localStorageService.get('firstName')
         let ac = this.service.localStorageService.get('autocost')
         let mc = this.service.localStorageService.get('multicost')
         if (ac !== null && mc !== null) {
