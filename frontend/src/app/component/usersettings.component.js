@@ -44,6 +44,7 @@ checkUser () {
 }
 }
 */
+}
 export const ftUserSettings = {
   controller,
   templateUrl,
