@@ -31,8 +31,8 @@ const controller = class FtLoginController {
       url: 'http://localhost:8080/user/users/validate/user' ,
       data: {username: this.username, password: this.password}
     }).then(this.successCallback = (response) => {
-      if (response.data === true) {
-        this.$http.get('http://localhost:8080/users/@' + this.username + '')
+      if (response.data.username !== undefined) {
+        this.$http.get('http://localhost:8080/user/users/@' + this.username + '')
        .then((response) => {
          this.settings.user.firstname = response.data.profile.firstName
          this.service.saveState('firstName', this.settings.user.firstname)
