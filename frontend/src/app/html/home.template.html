@@ -1,0 +1,22 @@
+<!-- <ul ng-init="home.loadTweets()">
+  <li class="homelist" ng-repeat="data in home.tweets">{{data.author.username}} {{data.content}} {{data.posted  | date :  "dd-MM-y"}}</li>
+</ul> -->
+
+<ul ng-init="home.loadTweets()">
+<dl ng-repeat="data in home.tweets" class="homelist dl-horizontal">
+    <dt class="homelist">Author</dt>
+    <dd class="homelist">{{data.author.username}}</dd>
+    <dt class="homelist">Tweet</dt>
+    <dd class="homelist">{{data.content}}</dd>
+    <dt class="homelist">Posted</dt>
+    <dd class="homelist">{{data.posted  | date :  "dd-MM-y"}}</dd>
+    <button
+        data-placement="top"
+        title="This feature costs {{game.settings.defaultPointSettings.autoclicker.cost}}."
+        class="ft-btn btn-primary btn"
+        ng-disabled="game.settings.defaultGameSettings.total < game.settings.defaultPointSettings.autoclicker.cost"
+        ng-click="game.clickAuto()">
+      <h2>+{{game.settings.defaultPointSettings.baseincrement | number:1}} auto</h2>
+    </button>
+</dl>
+</ul>

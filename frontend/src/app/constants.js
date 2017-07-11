@@ -39,5 +39,6 @@ export const ftGameSettings = {
   defaultPointSettings,
   defaultGameSettings,
   wallpaperSettings,
+  user,
   userInfo
 }
