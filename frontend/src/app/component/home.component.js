@@ -10,6 +10,7 @@ const controller = class FtRegisterController {
     this.$window = $window
     this.$state = $state
     this.$http = $http
+    this.loadTweets()
   //  $rootScope.$on(this.$location.$routeChangeStart, this.loadTweets())
     $log.log('ft-home is a go')
   }
@@ -19,9 +20,9 @@ const controller = class FtRegisterController {
     method: 'GET',
     url: 'http://localhost:8080/user/users/@' + 'admin' + '/feed'
   }).then(this.successCallback = (response) => {
-     let mydata = []
-      mydata = response.data
-     alert(JSON.stringify(this.mydata))
+     this.tweets = []
+     this.tweets = response.data
+    // alert(JSON.stringify(this.tweets))
   }, this.errorCallback = (response) => {
     this.error = 'Username or password are incorrect, please try again.'
   })
